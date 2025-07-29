@@ -2,7 +2,29 @@
 
 ## 🚀 一键安装
 
-### macOS/Linux
+### 1. 安装 GitHub CLI
+
+**macOS:**
+```bash
+brew install gh
+```
+
+**Windows:**
+```powershell
+winget install GitHub.cli
+```
+
+### 2. 认证 GitHub CLI
+
+```bash
+gh auth login
+```
+
+选择：`GitHub.com` → `HTTPS` → `Yes` → `Login with a web browser`
+
+### 3. 安装团队工具
+
+#### macOS/Linux
 ```bash
 curl -L https://github.com/buildsense-ai/team-tools/raw/main/install-org-tools.sh -o install-org-tools.sh
 chmod +x install-org-tools.sh
@@ -10,7 +32,7 @@ chmod +x install-org-tools.sh
 source ~/.zshrc  # 或 source ~/.bashrc
 ```
 
-### Windows
+#### Windows
 ```powershell
 Invoke-WebRequest -Uri "https://github.com/buildsense-ai/team-tools/raw/main/install-org-tools.ps1" -OutFile "install-org-tools.ps1"
 .\install-org-tools.ps1
@@ -46,4 +68,12 @@ git push
 - ✅ 命令简洁：`org-create` 替代复杂命令
 - ✅ 自动更新到最新版本
 - ✅ 跨平台支持
-- ✅ 团队统一配置 
+- ✅ 团队统一配置
+
+## ❓ 常见问题
+
+**Q: 需要什么权限？**
+A: 需要在组织中有创建仓库的权限。
+
+**Q: Push 时提示认证失败？**
+A: 脚本会自动配置认证，如果失败请运行：`git config --global credential.helper 'gh auth git-credential'` 
